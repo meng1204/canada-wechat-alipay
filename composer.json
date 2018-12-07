@@ -1,0 +1,23 @@
+{
+    "name": "meng1204/Canada-wechat-alipay",
+    "description": "Integrate Wechat Pay and Alipay through Alpha Pay Payment Gateway APIs. Allow Canadian merchants to easily accept Wechat Pay and Alipay for their E-commerce Platform.",
+    "keywords": [
+        "Wechat",
+        "Alipay"
+      ],
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Nico Chen",
+            "email": "meng8859@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "AlphaPay\\": "src/"
+        }
+    }
+}
