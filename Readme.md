@@ -2,7 +2,7 @@
 
 ## 安装 Install
 ```php
-composer required nicochen/Canada-wechat-alipay
+composer required nicochen/canada-wechat-alipay
 ```
 
 ## 使用方法 How to use
