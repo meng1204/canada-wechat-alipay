@@ -31,5 +31,5 @@ $alphapay->commonApi->orderQuery();
 
 ## More Information on Alpha Pay Page
 ```php
-Alpha Pay Page: www.alphapay.ca
+Go to the [Alpha Pay](https://www.alphapay.ca/) - WechatPay and Alipay Solution Provider
 ```
