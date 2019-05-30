@@ -30,7 +30,6 @@ $alphapay->commonApi->orderQuery();
 ```
 
 ## More Information on Alpha Pay Page
-```php
-Visit the Alpha Pay Official Website to know more details.
-https://www.alphapay.ca 
-```
+
+Visit the [Alpha Pay](https://www.alphapay.ca/) Official Website to know more details.
+
