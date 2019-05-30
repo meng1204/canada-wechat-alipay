@@ -2,7 +2,7 @@
 
 ## 安装 Install
 ```php
-composer required nicochen/canada-wechat-alipay
+Composer require meng1204/canada-wechat-alipay::dev-master --ignore-platform-reqs
 ```
 
 ## 使用方法 How to use
@@ -27,4 +27,9 @@ $alphapay->pay->H5();
 $alphapay->pay->refund();
 
 $alphapay->commonApi->orderQuery();
+```
+
+## More Information on Alpha Pay Page
+```php
+Alpha Pay Page: www.alphapay.ca
 ```
