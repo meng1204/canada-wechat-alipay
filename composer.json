@@ -13,7 +13,7 @@
             "email": "meng8859@gmail.com"
         }
     ],
-    "minimum-stability": "dev",
+    "minimum-stability": "*",
     "require": {},
     "autoload": {
         "psr-4": {
