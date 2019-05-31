@@ -74,7 +74,7 @@ class Pay extends Base{
 
         $orderId = $this->alphapay->order_id;
 
-        $url = "hhttps://pay.alphapay.ca/api/v1.0/h5_payment/partners/$partnerCode/orders/$orderId";
+        $url = "https://pay.alphapay.ca/api/v1.0/h5_payment/partners/$partnerCode/orders/$orderId";
 
 
         $urlObj = $this->alphapay->UrlObjForm();
@@ -82,7 +82,7 @@ class Pay extends Base{
         $bodyObj = [
             'description' => $this->alphapay->description,
             'price'=> $this->alphapay->price,
-            'channel' => 'Alipay',
+            'channel' => $this->alphapay->channel,
             'currency' => $this->alphapay->currency,
             'notify_url' => $this->alphapay->notify_url,
             'operation'=> $this->alphapay->operation,
