@@ -15,7 +15,7 @@ class Pay extends Base{
 
         $orderId = $this->alphapay->order_id;
 
-        $url = "https://pay.alphapay.ca/api/v1.0/wechat_jsapi_gateway/partners/$partnerCode/orders/$orderId";
+        $url = "https://pay.alphapay.ca/api/v1.0/jsapi_gateway/partners/$partnerCode/orders/$orderId";
 
 
         $urlObj = $this->alphapay->UrlObjForm();
@@ -26,7 +26,7 @@ class Pay extends Base{
             'channel' => $this->alphapay->channel,
             'currency' => $this->alphapay->currency,
             'notify_url' => $this->alphapay->notify_url,
-            'operation'=> $this->alphapay->operation,
+            'operator'=> $this->alphapay->operator,
         ];
 
 
@@ -55,7 +55,7 @@ class Pay extends Base{
             'channel' => $this->alphapay->channel,
             'currency' => $this->alphapay->currency,
             'notify_url' => $this->alphapay->notify_url,
-            'operation'=> $this->alphapay->operation,
+            'operator'=> $this->alphapay->operator,
         ];
 
 
@@ -85,7 +85,7 @@ class Pay extends Base{
             'channel' => $this->alphapay->channel,
             'currency' => $this->alphapay->currency,
             'notify_url' => $this->alphapay->notify_url,
-            'operation'=> $this->alphapay->operation,
+            'operator'=> $this->alphapay->operator,
         ];
 
 
@@ -96,6 +96,121 @@ class Pay extends Base{
         return $result;
 
     }
+
+    // NATIVE JSAPI for Alipay
+    public function NativeJsapi($timeOut = 10){
+        $partnerCode = $this->alphapay->PARTNER_CODE;
+        $orderId = $this->alphapay->order_id;
+
+        $url = "https://pay.alphapay.ca/api/v1.0/gateway/partners/$partnerCode/native_jsapi/$orderId";
+
+        $urlObj = $this->alphapay->UrlObjForm();
+
+        $bodyObj = [
+            'description' => $this->alphapay->description,
+            'price'=> $this->alphapay->price,
+            'channel' => $this->alphapay->channel,
+            'currency' => $this->alphapay->currency,
+            'appid' => $this->alphapay->appid,
+            'customer_id' => $this->alphapay->customer_id,
+            'notify_url' => $this->alphapay->notify_url,
+            'operator'=> $this->alphapay->operator,
+        ];
+
+        $response = self::putJsonCurl($url, $urlObj, $bodyObj, $timeOut);
+
+        $result = json_decode($response,true);
+
+        return $result;
+    }
+
+    // FOR APP
+    public function APP($timeOut = 10){
+        $partnerCode = $this->alphapay->PARTNER_CODE;
+
+        $orderId = $this->alphapay->order_id;
+
+        $url = "https://pay.alphapay.ca/api/v1.0/gateway/partners/$partnerCode/app_orders/$orderId";
+
+
+        $urlObj = $this->alphapay->UrlObjForm();
+
+        $bodyObj = [
+            'description' => $this->alphapay->description,
+            'price'=> $this->alphapay->price,
+            'channel' => $this->alphapay->channel,
+            'currency' => $this->alphapay->currency,
+            'notify_url' => $this->alphapay->notify_url,
+            'operator'=> $this->alphapay->operator,
+            'system' => $this->alphapay->system,
+            'appid' => $this->alphapay->appid,
+            'version' => $this->alphapay->version,
+        ];
+
+        $response = self::putJsonCurl($url, $urlObj, $bodyObj, $timeOut);
+
+        $result = json_decode($response,true);
+
+        return $result;
+    }
+
+    //小程序
+    public function MiniProgram($timeOut = 10){
+        $partnerCode = $this->alphapay->PARTNER_CODE;
+
+        $orderId = $this->alphapay->order_id;
+
+        $url = "https://pay.alphapay.ca/api/v1.0/gateway/partners/$partnerCode/microapp_orders/$orderId";
+
+
+        $urlObj = $this->alphapay->UrlObjForm();
+
+        $bodyObj = [
+            'description' => $this->alphapay->description,
+            'price'=> $this->alphapay->price,
+            'channel' => $this->alphapay->channel,
+            'currency' => $this->alphapay->currency,
+            'notify_url' => $this->alphapay->notify_url,
+            'operator'=> $this->alphapay->operator,
+            'appid' => $this->alphapay->appid,
+            'customer_id' => $this->alphapay->customer_id,
+        ];
+
+        $response = self::putJsonCurl($url, $urlObj, $bodyObj, $timeOut);
+
+        $result = json_decode($response,true);
+
+        return $result;
+    }
+
+
+    // 银联支付
+    public function UnionPay($timeOut = 10){
+        $partnerCode = $this->alphapay->PARTNER_CODE;
+
+        $orderId = $this->alphapay->order_id;
+
+        $url = "https://pay.alphapay.ca/api/v1.0/gateway/partners/$partnerCode/pre_card_orders/$orderId";
+
+        $urlObj = $this->alphapay->UrlObjForm();
+
+        $bodyObj = [
+            'description' => $this->alphapay->description,
+            'price'=> $this->alphapay->price,
+            'channel' => $this->alphapay->channel,
+            'currency' => $this->alphapay->currency,
+            'notify_url' => $this->alphapay->notify_url,
+            'operator'=> $this->alphapay->operator,
+        ];
+
+        $response = self::putJsonCurl($url, $urlObj, $bodyObj, $timeOut);
+
+        $result = json_decode($response,true);
+
+        return $result;
+    }
+    
+
 
     public function refund($timeOut = 10){
         $partnerCode = $this->alphapay->PARTNER_CODE;

@@ -19,9 +19,17 @@ class AlphaPay{
 
     public $notify_url;
 
-    public $operation;
+    public $operator;
 
     public $channel;
+
+    public $customer_id;
+
+    public $appid;
+
+    public $system;
+
+    public $version;
     
     /**
      * Variables for Refund
@@ -60,9 +68,14 @@ class AlphaPay{
         $this->description = isset($args['description']) ? $args['description'] : null;
         $this->price = isset($args['price']) ? $args['price'] : null;
         $this->notify_url = isset($args['notify_url']) ? $args['notify_url'] : null;
-        $this->operation = isset($args['operation']) ? $args['operation'] : 'admin';
+        $this->operator = isset($args['operator']) ? $args['operator'] : 'admin';
         $this->channel = isset($args['channel']) ? $args['channel'] : "Wechat";
         $this->currency = isset($args['currency']) ? $args['currency'] : 'CAD';
+
+        $this->customer_id = isset($args['customer_id']) ? $args['customer_id'] : '';
+        $this->appid = isset($args['appid']) ? $args['appid'] : '';
+        $this->system = isset($args['system']) ? $args['system'] : '';
+        $this->version = isset($args['version']) ? $args['version'] : '';
 
         $this->order_id = isset($args['order_id']) ? $args['order_id'] : null;
         $this->nonce_str = isset($args['nonce_str']) ? $args['nonce_str'] : null;
@@ -154,5 +167,12 @@ class AlphaPay{
     }
 
 
+    /**
+     * PAY URL RETURN
+     */
+    public function ReturnURL($pay_url){
+        $urlObj = $this->alphapay->UrlObjForm();
+        return $pay_url . '?' . self::urlForm($urlObj);
+    }
     
 }
