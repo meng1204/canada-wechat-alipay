@@ -2,7 +2,7 @@
 
 ## 安装 Install
 ```php
-Composer require meng1204/canada-wechat-alipay::dev-master --ignore-platform-reqs
+Composer require meng1204/canada-wechat-alipay
 ```
 
 ## 使用方法 How to use
