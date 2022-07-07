@@ -24,6 +24,24 @@ class CommonApi extends Base{
 
     }
 
+    public function orderRefundQuery($timeOut = 10){
+        $partnerCode = $this->alphapay->PARTNER_CODE;
+
+        $orderId = $this->alphapay->order_id;
+        $refundId = $this->alphapay->refund_id;
+
+        $url = "https://pay.alphapay.ca/api/v1.0/gateway/partners/$partnerCode/orders/$orderId/refunds/$refundId";
+
+        $urlObj = $this->alphapay->UrlObjForm();
+
+        $response = self::getJsonCurl($url, $urlObj, $timeOut);
+
+        $result = json_decode($response,true);
+
+        return $result;
+
+    }
+
     public function getJsonCurl($url, $urlObj, $second = 30)
     {
         $ch = curl_init();

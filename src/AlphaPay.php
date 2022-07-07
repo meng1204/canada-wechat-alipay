@@ -81,6 +81,9 @@ class AlphaPay{
         $this->nonce_str = isset($args['nonce_str']) ? $args['nonce_str'] : null;
         $this->time = isset($args['time']) ? $args['time'] : null;
         $this->sign = isset($args['sign']) ? $args['sign'] : null;
+
+        $this->refund_id = isset($args['refund_id']) ? $args['refund_id'] : '';
+        $this->fee = isset($args['fee']) ? $args['fee'] : '';
         
         $this->pay = new Pay($this);
         $this->commonApi = new CommonApi($this);
